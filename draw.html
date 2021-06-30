@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Draw.io</title>
+	<link rel="stylesheet" href="./draw.css">
+</head>
+<body>
+	<div class="top">
+	<div class="all center">
+		<div class="all__name beet ">
+			<img src="./images/logo.png" alt="logo">
+			<div class="all__prev beet2">
+				<div>DRAW.io</div>
+				<div id="best">Best drawing app</div>
+			</div>
+			<div class="all__cross ">
+				<img src="./images/cross.png" alt="clear">
+				<p>Press Ctrl + x</p>
+			</div>
+		</div>
+		<div class="all__panel beet2 ">
+			<div class="all__block " move type="0">
+				<img src="./images/brush.png" alt="main" class="bigger max">
+				<p>press 1</p>
+			</div>
+			<div class="all__block ">
+				<div class="all__color bigger max"></div>
+				<p>press 2</p>
+			</div>
+			<div class="all__block " move>
+					<img src="./images/text.png" alt=""  class="bigger max" >
+				<p>press 3</p>
+			</div>
+			<div class="all__block " move>
+				<img src="./images/eraser.png" alt="main" class="bigger max">
+				<p>press 4</p>
+			</div>
+			<div class="all__block " >
+				<img src="./images/line.png" alt="main" class="bigger max">
+				<p>press 5</p>
+			</div>
+			<div class="all__block " move type="0">
+				<img class="bigger max" src="./images/rect.png"></img>
+				<p>press 6</p>
+			</div>
+			<div class="all__block " >
+				<img src="./images/frame.png" alt="main" class="bigger max">
+				<p>press 7</p>
+			</div>
+			<div class="all__block ">
+				<img src="./images/gear.png" alt="main" id="rotate" class="bigger max">
+				<p>press 8</p>
+			</div>
+		</div>
+		<canvas class="all__drawing"></canvas>
+		<div class="all__backpanel beet ">
+			<div class="all__help center">
+				<img src="./images/tip.png" alt="">
+				<div id="text"></div>
+			</div>
+			<div class="all__control center">
+				<div class="all__brushProp  beet2" controlPanel="flex" ind="0">
+					<div class="all__plast1 beet">
+						<div>Set type  </div>
+						<div class="all__flex beet">
+							<div class="all__radio center" type="brush" modify="rect" >
+								<div></div>
+					</div>
+							<img src="./images/rectBrush.png" alt="">
+						</div>
+						<div class="all__flex beet">
+							<div class="all__radio center selectedRadio" type="brush" modify="circle" >
+								<div></div>
+							</div>
+							<img src="./images/circleBrush.png" alt="">
+						</div>
+					</div>
+					<div class="all__plast2 beet">
+						<div>Set size </div>
+						<div class="all__menu center">
+							<input type="number" value="10" inputIndex="0" class="input">
+						</div>
+					</div>
+				</div>
+				<div class="all__textProp beet2" controlPanel="grid" ind="2">
+					<div class="all__first beet2">
+						<div>Text type</div>
+						<div class="all__el beet">
+							<div class="all__radio center selectedRadio" type="text" modify="fillText" >
+								<div></div>
+							</div>
+							<img src="./images/text.png" alt="">
+						</div>
+						<div class="all__el beet">
+							<div class="all__radio center" type="text" modify="strokeText" >
+								<div></div>
+							</div>
+							<img src="./images/strokeText.png" alt="">
+						</div>
+					</div>
+					<div class="all__second beet2">
+						<div class="all__char beet">
+							<div>Font-weight</div>
+							<input type="number" class="input" value="400" textInput="0">
+						</div>
+						<div class="all__char beet">
+							<div>Font-size</div>
+							<input type="number" class="input" value="20" textInput="1" inputIndex="2">
+						</div>
+						<div class="all__list beet">
+							<div>Font-family</div>
+							<div class="all__listo input">
+								<div class="all__showFont center">
+									<p>serif</p>
+									<div class="all__bigCont"></div>
+								</div>
+								<img src="./images/smaller.png" alt="select" active="false">
+							</div>
+						</div>
+					</div>
+					<textarea class="all__third input"></textarea>
+				</div>
+				<div class="all__lineProp beet" ind="4" controlPanel="flex">
+					<div class="all__plasto1 beet2">
+						<p>Type of the line</p>
+						<div class="all__lineType beet">
+							<div class="all__radio center selectedRadio" type="line" modify="typical">
+								<div></div>
+							</div>
+							<p>*x</p>
+							<img src="./images/lineTypical.png" alt="lineImg" class="lineSelected">
+						</div>
+						<div class="all__lineType beet">
+							<div class="all__radio center" type="line" modify="curve">
+								<div></div>
+							</div>
+							<p>*2x</p>
+							<img src="./images/curve.png" alt="lineImg">
+						</div>
+						<div class="all__lineType beet">
+							<div class="all__radio center" type="line" modify="bezier">
+								<div></div>
+							</div>
+							<p>*3x</p>
+							<img src="./images/bezierCurve.png" alt="lineImg">
+						</div>
+					</div>
+					<div class="all__plasto2 beet2">
+						<div class="all__width beet">
+							<p>width</p>
+							<input type="number" value="1" class="input" inputIndex="4">
+						</div>
+							<div class="all__elem beet">
+								<p>close path</p>
+								<div class="checkbox" modify="closePath" active="false">
+									<img src="./images/ok.png" alt="">
+								</div>
+							</div>
+							<div class="all__elem beet" id="lastBox">
+								<p>fill inside</p>
+								<div class="checkbox" modify="fill" active="false">
+									<img src="./images/ok.png" alt="">
+								</div>
+							</div>
+					</div>
+					<div class="all__plasto3 beet">
+						<p>dots</p>
+						<div class="all__circlo center">
+							<div></div>
+						</div>
+						<p id="dotNumber">*0</p>
+					</div>
+				</div>
+				<!-- flex -->
+				<div class="all__figuresProp beet" controlPanel="flex" ind="5">
+					<div class="all__setFigure beet2">
+						<p>Select figure type</p>
+						<div class="all__grid grids">
+							<div class="beet">
+								<div class="all__radio center selectedRadio" type="figure" modify="rect">
+											<div></div>
+								</div>
+								<img src="./images/rectBrush.png" alt="">
+							</div>
+							<div class="beet">
+								<div class="all__radio center" type="figure" modify="oval">
+											<div></div>
+								</div>
+								<img src="./images/oval.png" alt="">
+							</div>
+							<div class="beet">
+								<div class="all__radio center" type="figure" modify="star">
+											<div></div>
+								</div>
+								<img src="./images/starRect.png" alt="">
+							</div>
+							<div class="beet">
+								<div class="all__radio center" type="figure" modify="cutCircle">
+											<div></div>
+								</div>
+								<img src="./images/circleRect.png" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="all__status beet2">
+						<p>Width :</p>
+						<input type="number" class="width input" value="50" inputIndex="5">
+						<div class="all__height beet2">
+							<p>Height :</p>
+							<input type="number" class="height input" value="50" inputIndex="5">
+						</div>
+						<div class="all__rotate beet2">
+							<p>Rotate : </p>
+							<div class="all__rotatePlast beet">
+									<div class="all__radio center" type="figureCutCircle" modify="false">
+										<div></div>
+									</div>
+								<img src="./images/rotateLeft.png" >
+							</div>
+							<div class="all__rotatePlast beet">
+									<div class="all__radio center selectedRadio" type="figureCutCircle" modify="true">
+										<div></div>
+									</div>
+								<img src="./images/rotateRight.png" >
+							</div>
+						</div>
+					</div>
+					<div class="all__starSet grids circleRectVisibility">
+						<div class="beet2">
+							<p>Spikes</p>
+							<input type="number" class="input" change value="6" mod="spikes" inputIndex="5">
+						</div>
+						<div class="beet2">
+							<p>outerRadius</p>
+							<input type="number" class="input" change value="60" mod="outerRadius" inputIndex="5">
+						</div>
+						<div class="beet2">
+							<p>innerRadius</p>
+							<input type="number" class="input" change value="70" mod="innerRadius" inputIndex="5">
+						</div>
+						<div class="beet2">
+							<p>lineColor</p>
+							<input type="color" class="input color" value="#FFFFFF" mod="lineColor" inputIndex="5">
+						</div>
+					</div>
+				</div>
+				<!-- flex -->
+			</div>
+		</div>
+	</div>
+	<div class="all__inter">
+		<div class="all__vidge">
+			<img src="./images/cross.png" alt="" id="close">
+			<div class="all__grid1"></div>
+		</div>
+		<div class="all__vidgePanel beet2">
+			<div class="all__mentoin">set your own color</div>
+			<input type="color" value="#FFFFFF" class="all__RGBA input">
+			<div class="all__cir beet">
+				<img class="all__submit"  src="./images/okChange.png">
+				<img class="all__canel" src="./images/cross.png">
+			</div>
+		</div>
+		<div class="all__grid-container" >
+			<div class="all__grid2"></div>
+		</div>
+		<div class="all__scala center" >
+			<div class="all__show center">
+				<div>1/1</div>
+			</div>
+			<div class="all__progress"></div>
+			<div class="all__line"></div>
+		</div>
+		<div class="all__agree beet buttonsEl" >
+			<div class="all__But center activeBut" what="on">ON</div>
+			<div class="all__But center " what="off">OFF</div>
+		</div>
+		<div class="all__pane beet" active="false">
+			<div class="shower2">
+				<img src="./images/canvas.png" alt="1" active="false" class="setImg ">
+				<p>Canvas Color</p>
+			</div>
+			<div class="shower2">
+				<img src="./images/lapm.png" alt="2" active="false" class="setImg ">
+				<p>Canvas Opacity</p>
+			</div>
+			<div class="shower2">
+				<img src="./images/trumpet.png" alt="3" active="false" class="setImg ">
+				<p>Show notifications</p>
+			</div>
+		</div>
+		<div class="all__gradPanel">
+		<div class="all__containGrid beet2">
+			<div class="all__plasty1 beet">
+				<div class="all__elem1 beet2">
+					<p>Set gradient type</p>
+					<div class="all__fli beet">
+						<div class="all__radio center selectedRadio" type="grad" modify="linear">
+							<div></div>
+						</div>
+						<img src="./images/rectBrush.png" alt="">
+					</div>
+					<div class="all__fli beet">
+							<div class="all__radio center" type="grad" modify="radial">
+								<div></div>
+							</div>
+							<img src="./images/circleBrush.png" alt="">
+					</div>
+				</div>
+				<canvas id="canvasExample"></canvas>
+			</div>
+			<div class="all__plasty2 beet2">
+				<p>add color</p>
+				<div class="inputel beet">
+					<div class="inputel__cont beet">
+						<p>%</p>
+						<input type="number" class="input number" inputIndex="6">
+						<input type="color" class="input color" value="#FFFFFF">
+					</div>
+					<div class="inputel__cont2 beet">
+						<img class="do" src="./images/okChange.png" type="accept">
+						<img class="do" src="./images/cross.png" type="cannel">
+					</div>
+				</div>
+				<div class="all__addColPanel beet2"></div>
+				<div class="all__submit beet buttonsEl">
+					<div what="on">On</div>
+					<div what="off" class="activeBut">Off</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="top__back">
+		<div class="block" draggable="false"></div>
+	</div>
+</div>
+<div class="forbid center">
+	<div class="forbid__block beet2">
+		<p>Sorry the size is to small</p>
+	<p>to draw</p>
+	</div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="draw.js"></script>
+</html>
